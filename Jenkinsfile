@@ -10,11 +10,12 @@ pipeline {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
-                       
-                     git "https://github.com/mana3abbas/new_shared_lib/tree/backend"
-                        backend ()
-                     
-                    git "https://github.com/mana3abbas/new_shared_lib/tree/frontend"
+                     git branch: 'backend',
+                     url: "https://github.com/mana3abbas/new_shared_lib/tree/backend"
+                     backend ()
+                        
+                    git branch: 'frontend',
+                    url: "https://github.com/mana3abbas/new_shared_lib/tree/frontend"
                        frontend ()
                    }
                 }
@@ -26,8 +27,9 @@ pipeline {
                   withCredentials([file(credentialsId: 'kubeconfig-credi', variable: 'KUBECONFIG')]) 
                 {
                    
-                    git "https://github.com/mana3abbas/new_shared_lib/tree/helm"
-                     helm ()
+                    git branch: 'helm',
+                    url: "https://github.com/mana3abbas/new_shared_lib/tree/helm"
+                       helm ()
                 }
                   }
             }
