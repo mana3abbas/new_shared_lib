@@ -1,9 +1,7 @@
 @Library('shared-lib') _
 pipeline {
     agent { label 'jenkins-slave' }
-      parameters {
-         choice(name: 'build', choices: [dev,test,prod], description: 'choose a value')
-       }
+     
     stages {
         stage('build') {
              when {
