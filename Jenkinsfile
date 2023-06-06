@@ -6,29 +6,28 @@ pipeline {
        }
     stages {
         stage('build') {
+             when {
+                branch 'backend'
+              }
             steps {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
-                     git branch: 'backend',
-                     url: "https://github.com/mana3abbas/new_shared_lib/tree/backend"
                      backend ()
                         
-                    git branch: 'frontend',
-                    url: "https://github.com/mana3abbas/new_shared_lib/tree/frontend"
-                       frontend ()
                    }
                 }
             }
         }
          stage('deploy') {
+             when {
+                branch 'helm'
+              }
           
             steps {
                   withCredentials([file(credentialsId: 'kubeconfig-credi', variable: 'KUBECONFIG')]) 
                 {
                    
-                    git branch: 'helm',
-                    url: "https://github.com/mana3abbas/new_shared_lib/tree/helm"
                        helm ()
                 }
                   }
