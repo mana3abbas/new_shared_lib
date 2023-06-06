@@ -10,8 +10,8 @@ pipeline {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
-                        git branch: 'backend'
-                       url: "https://github.com/mana3abbas/new_shared_lib/tree/backend"
+                       
+                     git "https://github.com/mana3abbas/new_shared_lib/tree/backend"
                         backend ()
                        git branch: 'frontend'
                        url: "https://github.com/mana3abbas/new_shared_lib/tree/frontend"
