@@ -11,7 +11,8 @@ pipeline {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
                        
-                      frontend ()
+                     build (server,backend)
+                     build (client,frontend)
                         
                    }
                 }
