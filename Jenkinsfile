@@ -9,6 +9,9 @@ pipeline {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
+                        when {
+                        env.BRANCH_NAME==backend
+                        }
                      backend ()
                       frontend ()
                         
