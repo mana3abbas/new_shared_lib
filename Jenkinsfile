@@ -21,7 +21,6 @@ pipeline {
             steps {
                   withCredentials([file(credentialsId: 'kubeconfig-credi', variable: 'KUBECONFIG')]) 
                 {
-                   
                        helm ()
                 }
                   }
