@@ -1,4 +1,4 @@
-def call (name,fname){
+def call (){
                     sh """
                             docker login -u $USERNAME -p $PASSWORD
                             docker build -t monasamir/server:b${BUILD_NUMBER} -f $WORKSPACE/badreads-backend/
