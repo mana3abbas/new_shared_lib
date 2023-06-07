@@ -4,16 +4,14 @@ pipeline {
      
     stages {
         stage('build') {
-             
+               when {
+                        branch 'frontend'
+                      }
+                
             steps {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
-                  when {
-                     
-                        branch 'frontend'
-    
-                      }
                 
           
                       frontend ()
