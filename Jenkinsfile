@@ -4,16 +4,13 @@ pipeline {
      
     stages {
         stage('build') {
-               when {
-                        branch 'frontend'
-                      }
                 
             steps {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
-                    echo 'login docker hub'
-          
+                         git branch: 'frontend',
+                       url: "https://github.com/mana3abbas/new_shared_lib/tree/frontend"
                       frontend ()
                         
                    }
