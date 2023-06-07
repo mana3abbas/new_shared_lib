@@ -10,7 +10,7 @@ pipeline {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
                     
-                git branch: 'frontend', url: 'https://github.com/mana3abbas/new_shared_lib/tree/frontend'
+          
                       frontend ()
                         
                    }
