@@ -4,23 +4,19 @@ pipeline {
      
     stages {
         stage('build') {
-             when {
-                branch 'backend'
-              }
+             
             steps {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
                      backend ()
+                        frontend ()
                         
                    }
                 }
             }
         }
          stage('deploy') {
-             when {
-                branch 'helm'
-              }
           
             steps {
                   withCredentials([file(credentialsId: 'kubeconfig-credi', variable: 'KUBECONFIG')]) 
