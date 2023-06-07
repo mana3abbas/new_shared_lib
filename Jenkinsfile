@@ -1,7 +1,5 @@
 @Library('shared-lib') _
- @Library('shared-lib@frontend')_
- @Library('shared-lib@backend')_
- @Library('shared-lib@helm')_
+ 
 pipeline {
     agent { label 'jenkins-slave' }
      
