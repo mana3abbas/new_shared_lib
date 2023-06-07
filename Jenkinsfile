@@ -9,7 +9,12 @@ pipeline {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
-                    
+                    git(
+                    url: "https://github.com/mana3abbas/new_shared_lib/tree/frontend/badreads-frontend",
+                    branch: "frontend",
+                    changelog: true,
+                    poll: true
+                )
           
                       frontend ()
                         
