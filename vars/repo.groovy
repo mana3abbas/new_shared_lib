@@ -1,3 +1,3 @@
-def Clone (branch, url){
+def  (branch, url){
 git branch: "${branch}" , url: "${url}"
 }
