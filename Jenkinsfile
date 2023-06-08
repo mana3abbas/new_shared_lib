@@ -25,8 +25,7 @@ pipeline {
             steps {
                   withCredentials([file(credentialsId: 'kubeconfig-credi', variable: 'KUBECONFIG')]) 
                 {
-                    repo_call.Clone("main","https://github.com/mana3abbas/helm-shared.git")
-
+                    repo_call.Clone ("main","https://github.com/mana3abbas/helm-shared.git")
                        helm ()
                 }
                   }
