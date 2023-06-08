@@ -23,6 +23,7 @@ pipeline {
          stage('deploy') {
           
             steps {
+               script {
                   withCredentials([file(credentialsId: 'kubeconfig-credi', variable: 'KUBECONFIG')]) 
                 {
                     repo_call.Clone ("main","https://github.com/mana3abbas/helm-shared.git")
@@ -30,5 +31,6 @@ pipeline {
                 }
                   }
             }
+         }
     }
 }
