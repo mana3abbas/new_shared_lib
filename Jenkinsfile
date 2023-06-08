@@ -10,10 +10,10 @@ pipeline {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
-                      build ("server","backend")
                     repo.Clone ("main","https://github.com/mana3abbas/backend-shared.git")
                     //  git url: 'main","https://github.com/mana3abbas/backend-shared.git', branch: 'main'
-                    
+                      build ("server","backend")
+
                      repo.Clone ("main","https://github.com/mana3abbas/frontend-shared-.git")
                     // git url: 'https://github.com/mana3abbas/frontend-shared-.git', branch: 'main'
                      build ("client","frontend")
