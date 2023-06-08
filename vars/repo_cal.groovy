@@ -1,3 +1,3 @@
-dev Clone (String branch, String repo){
-git branch: "${branch}" , url: "${repo}"
+dev Clone (String branch, String url){
+git branch: "${branch}" , url: "${url}"
 }
