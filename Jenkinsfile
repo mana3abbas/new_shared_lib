@@ -1,4 +1,4 @@
-@Library('shared-lib') _
+@Library('new_shared-lib') _
  
 pipeline {
     agent { label 'jenkins-slave' }
