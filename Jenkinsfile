@@ -10,9 +10,9 @@ pipeline {
                 script {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
-                     repo_call(main,backend)
+                     repo_call(main,https://github.com/mana3abbas/backend-shared.git)
                      build (server,backend)
-                     repo_call(main,frontend)
+                     repo_call(main,https://github.com/mana3abbas/frontend-shared-.git)
 
                      build (client,frontend)
 
@@ -25,7 +25,7 @@ pipeline {
             steps {
                   withCredentials([file(credentialsId: 'kubeconfig-credi', variable: 'KUBECONFIG')]) 
                 {
-                    repo_call(main,helm)
+                    repo_call(main,https://github.com/mana3abbas/helm-shared.git)
 
                        helm ()
                 }
