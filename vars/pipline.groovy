@@ -10,7 +10,20 @@ pipeline {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
                     
-                     build ("server","backend")
+                     build ()
+
+                   }
+                }
+            }
+            stages {
+        stage('deploy') {
+                
+            steps {
+                script {
+                   withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
+                    {
+                    
+                     helm ()
 
                    }
                 }
