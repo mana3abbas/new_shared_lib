@@ -1,4 +1,4 @@
-def call(String param1){
+def call(){
                     sh """
                             docker login -u $USERNAME -p $PASSWORD
                             docker build -t monasamir/s:${BUILD_NUMBER} .
