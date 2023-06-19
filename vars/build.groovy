@@ -1,8 +1,8 @@
-def call(String param1, String param2){
+def call(String param1){
                     sh """
                             docker login -u $USERNAME -p $PASSWORD
-                            docker build -t monasamir/"${param1}":s${BUILD_NUMBER} -f $WORKSPACE/badreads-"${param2}"/Dockerfile
-                            docker push monasamir/"${param1}":s${BUILD_NUMBER} 
+                            docker build -t monasamir/s:${BUILD_NUMBER} .
+                            docker push monasamir/s:${BUILD_NUMBER} 
                        """
 }
 
