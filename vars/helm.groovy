@@ -3,6 +3,6 @@ def call(){
                 sh 'pwd'
                 sh """
                          echo "Running Helm"
-                         helm install vois${BUILD_NUMBER} ./HELM/onboard-task
+                         helm install vois${BUILD_NUMBER} ./chart
                    """   
 }
