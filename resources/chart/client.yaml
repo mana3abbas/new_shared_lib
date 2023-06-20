@@ -1,0 +1,10 @@
+metadata:
+  name: client
+  labels:
+    app: client
+spec:
+ containers:
+    name: client
+    image: monasamir/client:m${BUILD_NUMBER}
+    ports:
+    containerPort: 3000 
