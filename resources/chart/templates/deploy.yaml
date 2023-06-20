@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-server
+  name: {{ .Release.Name }}
   labels:
-    app: server
+    app: webapp
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -15,8 +15,8 @@ spec:
         app: server 
     spec:
       containers:
-      - name: {{ .Chart.Name }}-server
-        image: monasamir/server:v14
+      - name: {{ .Chart.Name }}
+        image: monasamir/image:v14
         ports:
         - containerPort: 4000
        
