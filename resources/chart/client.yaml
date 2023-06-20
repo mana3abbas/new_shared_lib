@@ -8,3 +8,11 @@ spec:
     image: monasamir/client:m${BUILD_NUMBER}
     ports:
     containerPort: 3000 
+service:
+   name: client-svc
+    type: NodePort 
+    name: client-svc
+    port:  3000
+    targetPort: 3000 
+    nodePort: 30057 
+    protocol: TCP
