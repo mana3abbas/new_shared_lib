@@ -23,7 +23,7 @@ pipeline {
                    withCredentials([usernamePassword(credentialsId: 'dockerhubaccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                     {
                     
-                     helm ()
+                     helm (server)
 
                    }
                 }
