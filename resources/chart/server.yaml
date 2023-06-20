@@ -1,0 +1,13 @@
+metadata:
+  name: {{ .Release.Name }}-server
+  labels:
+    app: server
+ template:
+  spec:
+      containers:
+      - name: {{ .Chart.Name }}-server
+        image: monasamir/server:m${BUILD_NUMBER} 
+        ports:
+        - containerPort: 4000
+        
+    
